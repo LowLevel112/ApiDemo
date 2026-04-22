@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="DummyJSON API Demo" tests="4" time="1.209">
+  <testsuite name="GET Users" id="fcc28be2-fcb5-436a-9035-29c4ac118169" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.401">
+    <testcase name="Status code is 200" time="0.401" classname="GetUsers"/>
+    <testcase name="Response has users array" time="0.401" classname="GetUsers"/>
+  </testsuite>
+  <testsuite name="POST Login" id="78727708-e2ae-46a1-84cc-02c3d6edb805" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.272">
+    <testcase name="Status code is 200" time="0.272" classname="PostLogin"/>
+    <testcase name="Response has access token" time="0.272" classname="PostLogin"/>
+  </testsuite>
+  <testsuite name="PUT User 2" id="f1f0cf9e-0cf5-4b79-ba85-c47c6890c655" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.268">
+    <testcase name="Status code is 200" time="0.268" classname="PutUser2"/>
+    <testcase name="Response includes updated fields" time="0.268" classname="PutUser2"/>
+  </testsuite>
+  <testsuite name="DELETE User 2" id="fb479a94-6aa2-4a63-a88d-316e226173c3" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.268">
+    <testcase name="Status code is 200" time="0.268" classname="DeleteUser2"/>
+    <testcase name="Response confirms deletion" time="0.268" classname="DeleteUser2"/>
+  </testsuite>
+</testsuites>

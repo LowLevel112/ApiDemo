@@ -1,0 +1,184 @@
+{
+  "info": {
+    "_postman_id": "35ecfd08-f015-48e6-b5f1-d761acf4b787",
+    "name": "DummyJSON API Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Collection for API testing with Postman and Newman on DummyJSON."
+  },
+  "item": [
+    {
+      "name": "GET Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users?limit=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test('Response has users array', function () {",
+              "  pm.expect(jsonData).to.have.property('users');",
+              "  pm.expect(jsonData.users).to.be.an('array').that.is.not.empty;",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{loginUsername}}\",\n  \"password\": \"{{loginPassword}}\",\n  \"expiresInMins\": 30\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test('Response has access token', function () {",
+              "  pm.expect(jsonData).to.have.property('accessToken');",
+              "  pm.expect(jsonData.accessToken).to.be.a('string').and.not.empty;",
+              "});",
+              "",
+              "pm.environment.set('authToken', jsonData.accessToken);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "PUT User 2",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test('Response includes updated fields', function () {",
+              "  pm.expect(jsonData).to.have.property('id', 2);",
+              "  pm.expect(jsonData).to.have.property('firstName', 'Test');",
+              "  pm.expect(jsonData).to.have.property('lastName', 'User');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DELETE User 2",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test('Response confirms deletion', function () {",
+              "  pm.expect(jsonData).to.have.property('id', 2);",
+              "  pm.expect(jsonData).to.have.property('isDeleted', true);",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

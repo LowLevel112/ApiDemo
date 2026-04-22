@@ -1,0 +1,39 @@
+name: Run API Tests with Newman
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  newman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run Newman tests
+        run: newman run collections/reqres_collection.json -e environment/reqres_environment.json --reporters junit --reporter-junit-export reports/junit.xml
+
+      - name: Upload JUnit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-junit-report
+          path: reports/junit.xml
