@@ -121,7 +121,8 @@ Workflow file: .github/workflows/newman.yml
 The workflow runs tests against all environments (dev, staging, prod) in parallel.
 
 ### Outputs
-- JUnit XML reports: eports/junit-{environment}.xml
+- JUnit XML reports: 
+eports/junit-{environment}.xml
 - Artifacts uploaded for each environment
 
 ## Test Results
@@ -134,11 +135,11 @@ The workflow runs tests against all environments (dev, staging, prod) in paralle
 ├─────────────────────────┼────────────────────┼────────────────────┤
 │                requests │                  8 │                  0 │
 ├─────────────────────────┼────────────────────┼────────────────────┤
-│            test-scripts │                   8 │                  0 │
+│            test-scripts │                   8│                  0 │
 ├─────────────────────────┼────────────────────┼────────────────────┤
-│      assertions        │                  26 │                  0 │
+│      assertions         │                  26│                  0 │
 ├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: ~4s                                          │
+│ total run duration: ~4s                                           │
 │ average response time: ~360ms                                     │
 └───────────────────────────────────────────────────────────────────┘
 `
