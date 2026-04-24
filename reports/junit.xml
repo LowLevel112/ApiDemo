@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="DummyJSON API Demo" tests="4" time="1.209">
-  <testsuite name="GET Users" id="fcc28be2-fcb5-436a-9035-29c4ac118169" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.401">
-    <testcase name="Status code is 200" time="0.401" classname="GetUsers"/>
-    <testcase name="Response has users array" time="0.401" classname="GetUsers"/>
+<testsuites name="DummyJSON API Demo" tests="8" time="2.811">
+  <testsuite name="GET Users" id="cc707622-33c7-4589-bd6f-ca64c4e34811" timestamp="2026-04-24T02:45:10.994Z" tests="4" failures="0" errors="0" time="0.547">
+    <testcase name="Status code is 200" time="0.547" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.547" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.547" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has users array" time="0.547" classname="DummyJsonApiDemo"/>
   </testsuite>
-  <testsuite name="POST Login" id="78727708-e2ae-46a1-84cc-02c3d6edb805" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.272">
-    <testcase name="Status code is 200" time="0.272" classname="PostLogin"/>
-    <testcase name="Response has access token" time="0.272" classname="PostLogin"/>
+  <testsuite name="POST Login" id="a0103902-dc77-4f95-b955-fc2470fb81b5" timestamp="2026-04-24T02:45:10.994Z" tests="4" failures="0" errors="0" time="0.342">
+    <testcase name="Status code is 200" time="0.342" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.342" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.342" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has access token" time="0.342" classname="DummyJsonApiDemo"/>
   </testsuite>
-  <testsuite name="PUT User 2" id="f1f0cf9e-0cf5-4b79-ba85-c47c6890c655" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.268">
-    <testcase name="Status code is 200" time="0.268" classname="PutUser2"/>
-    <testcase name="Response includes updated fields" time="0.268" classname="PutUser2"/>
+  <testsuite name="GET Auth Me" id="c1f66f3f-be0d-42ba-bbc0-d454ce6f77b1" timestamp="2026-04-24T02:45:10.994Z" tests="4" failures="0" errors="0" time="0.372">
+    <testcase name="Status code is 200" time="0.372" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.372" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.372" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has user data" time="0.372" classname="DummyJsonApiDemo"/>
   </testsuite>
-  <testsuite name="DELETE User 2" id="fb479a94-6aa2-4a63-a88d-316e226173c3" timestamp="2026-04-22T03:06:16.189Z" tests="2" failures="0" errors="0" time="0.268">
-    <testcase name="Status code is 200" time="0.268" classname="DeleteUser2"/>
-    <testcase name="Response confirms deletion" time="0.268" classname="DeleteUser2"/>
+  <testsuite name="PUT User 2" id="572f45c5-2cf2-4196-8b1e-10105d08272a" timestamp="2026-04-24T02:45:10.994Z" tests="4" failures="0" errors="0" time="0.296">
+    <testcase name="Status code is 200" time="0.296" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.296" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.296" classname="DummyJsonApiDemo"/>
+    <testcase name="Response includes updated fields" time="0.296" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="DELETE User 2" id="6764606f-9fbf-47ab-a3ba-5744531b7f5c" timestamp="2026-04-24T02:45:10.994Z" tests="4" failures="0" errors="0" time="0.304">
+    <testcase name="Status code is 200" time="0.304" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.304" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.304" classname="DummyJsonApiDemo"/>
+    <testcase name="Response confirms deletion" time="0.304" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / POST Login - Invalid Credentials" id="42f38f11-4ad1-40bf-91ed-66040ca22898" timestamp="2026-04-24T02:45:10.994Z" tests="2" failures="0" errors="0" time="0.301">
+    <testcase name="Status code is 400 for invalid credentials" time="0.301" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.301" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET Users - Invalid Limit" id="7c31a575-1938-4878-94b6-246a4494c7b7" timestamp="2026-04-24T02:45:10.994Z" tests="2" failures="0" errors="0" time="0.343">
+    <testcase name="Status code is 400 for non-numeric limit" time="0.343" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.343" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET User Not Found" id="377a5173-33ac-4432-a74d-9394177f8082" timestamp="2026-04-24T02:45:10.994Z" tests="2" failures="0" errors="0" time="0.306">
+    <testcase name="Status code is 404 for non-existent user" time="0.306" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.306" classname="DummyJsonApiDemo"/>
   </testsuite>
 </testsuites>

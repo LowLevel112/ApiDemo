@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="DummyJSON API Demo" tests="8" time="3.258">
+  <testsuite name="GET Users" id="41142607-7ddd-4b9a-9668-4815ff3970b9" timestamp="2026-04-24T02:43:54.522Z" tests="4" failures="0" errors="0" time="0.496">
+    <testcase name="Status code is 200" time="0.496" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.496" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.496" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has users array" time="0.496" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="POST Login" id="abfe20b0-76de-4a82-bfaf-9a67750dc49f" timestamp="2026-04-24T02:43:54.522Z" tests="4" failures="0" errors="0" time="0.357">
+    <testcase name="Status code is 200" time="0.357" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.357" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.357" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has access token" time="0.357" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="GET Auth Me" id="4c908c9e-26eb-410b-ba3b-8cc668931dd5" timestamp="2026-04-24T02:43:54.522Z" tests="4" failures="0" errors="0" time="0.293">
+    <testcase name="Status code is 200" time="0.293" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.293" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.293" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has user data" time="0.293" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="PUT User 2" id="316423ce-830e-48c1-a603-b832b42f3362" timestamp="2026-04-24T02:43:54.522Z" tests="4" failures="0" errors="0" time="0.309">
+    <testcase name="Status code is 200" time="0.309" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.309" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.309" classname="DummyJsonApiDemo"/>
+    <testcase name="Response includes updated fields" time="0.309" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="DELETE User 2" id="c3415cc1-090a-49b3-bc88-9d93fa43b928" timestamp="2026-04-24T02:43:54.522Z" tests="4" failures="0" errors="0" time="0.315">
+    <testcase name="Status code is 200" time="0.315" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.315" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.315" classname="DummyJsonApiDemo"/>
+    <testcase name="Response confirms deletion" time="0.315" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / POST Login - Invalid Credentials" id="eaff97b8-3472-4375-8714-3eab3e750233" timestamp="2026-04-24T02:43:54.522Z" tests="2" failures="1" errors="0" time="0.382">
+    <testcase name="Status code is 401 for invalid credentials" time="0.382" classname="DummyJsonApiDemo">
+      <failure type="AssertionFailure" message="expected response to have status code 401 but got 400">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 35ecfd08-f015-48e6-b5f1-d761acf4b787.]]>
+        <![CDATA[Collection name: DummyJSON API Demo.]]>
+        <![CDATA[Request name: Negative Tests / POST Login - Invalid Credentials.]]>
+        <![CDATA[Test description: Status code is 401 for invalid credentials.]]>
+        <![CDATA[Error message: expected response to have status code 401 but got 400.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 401 but got 400
+   at Object.eval sandbox-script.js:1:6).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response time is less than 2s" time="0.382" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET Users - Invalid Limit" id="1e11dfa7-126b-4dfb-ada0-f5cf1195cf13" timestamp="2026-04-24T02:43:54.522Z" tests="2" failures="1" errors="0" time="0.818">
+    <testcase name="Status code is 400 for invalid limit" time="0.818" classname="DummyJsonApiDemo">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 200">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 35ecfd08-f015-48e6-b5f1-d761acf4b787.]]>
+        <![CDATA[Collection name: DummyJSON API Demo.]]>
+        <![CDATA[Request name: Negative Tests / GET Users - Invalid Limit.]]>
+        <![CDATA[Test description: Status code is 400 for invalid limit.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 200.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 200
+   at Object.eval sandbox-script.js:1:7).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response time is less than 2s" time="0.818" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET User Not Found" id="9f769e79-fa97-4c27-bace-7bf00e5405f4" timestamp="2026-04-24T02:43:54.522Z" tests="2" failures="0" errors="0" time="0.288">
+    <testcase name="Status code is 404 for non-existent user" time="0.288" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.288" classname="DummyJsonApiDemo"/>
+  </testsuite>
+</testsuites>

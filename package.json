@@ -1,0 +1,26 @@
+{
+  "name": "apidemo",
+  "version": "1.0.0",
+  "description": "API Testing with Postman and Newman",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run collections/reqres_collection.json -e environment/reqres_environment.json --reporters junit,cli",
+    "test:ci": "newman run collections/reqres_collection.json -e environment/reqres_environment.json --bail --reporters junit --reporter-junit-export reports/junit.xml",
+    "test:dev": "newman run collections/reqres_collection.json -e environment/dev_environment.json",
+    "test:staging": "newman run collections/reqres_collection.json -e environment/staging_environment.json",
+    "test:prod": "newman run collections/reqres_collection.json -e environment/prod_environment.json",
+    "test:report": "newman run collections/reqres_collection.json -e environment/reqres_environment.json --reporters junit,html --reporter-junit-export reports/junit.xml --reporter-html-export reports/html-report.html"
+  },
+  "keywords": [
+    "api",
+    "testing",
+    "postman",
+    "newman"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^4.0.0",
+    "newman-reporter-html": "^1.0.1"
+  }
+}

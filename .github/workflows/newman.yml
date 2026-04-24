@@ -1,4 +1,4 @@
-name: Run API Tests with Newman
+﻿name: Run API Tests with Newman
 
 on:
   push:
@@ -8,10 +8,29 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
 
 jobs:
   newman-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - environment: dev
+            env_file: dev_environment.json
+          - environment: staging
+            env_file: staging_environment.json
+          - environment: prod
+            env_file: prod_environment.json
 
     steps:
       - name: Checkout code
@@ -28,8 +47,47 @@ jobs:
       - name: Create reports directory
         run: mkdir -p reports
 
-      - name: Run Newman tests
-        run: newman run collections/reqres_collection.json -e environment/reqres_environment.json --reporters junit --reporter-junit-export reports/junit.xml
+      - name: Run Newman tests (${{ matrix.environment }})
+        run: |
+          newman run collections/reqres_collection.json \
+            -e environment/${{ matrix.env_file }} \
+            --bail \
+            --reporters junit,cli \
+            --reporter-junit-export reports/junit-${{ matrix.environment }}.xml
+
+      - name: Upload JUnit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-junit-report-${{ matrix.environment }}
+          path: reports/junit-${{ matrix.environment }}.xml
+
+  newman-manual:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run Newman tests on ${{ github.event.inputs.environment }}
+        run: |
+          newman run collections/reqres_collection.json \
+            -e environment/${{ github.event.inputs.environment }}_environment.json \
+            --bail \
+            --reporters junit,cli \
+            --reporter-junit-export reports/junit.xml
 
       - name: Upload JUnit report
         if: always()
