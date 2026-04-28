@@ -1,0 +1,15 @@
+$kind: http-request
+name: GET User Not Found
+method: GET
+url: '{{baseUrl}}/users/999999'
+order: 3000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 404", function () {
+          pm.response.to.have.status(404);
+      });
+      pm.test("Response time is less than 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });

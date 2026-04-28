@@ -1,0 +1,18 @@
+$kind: http-request
+name: GET Users - Invalid Limit
+method: GET
+url: '{{baseUrl}}/users'
+order: 2000
+queryParams:
+  - key: limit
+    value: abc
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 400", function () {
+          pm.response.to.have.status(400);
+      });
+      pm.test("Response time is less than 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });

@@ -1,0 +1,10 @@
+# Use this workspace to collaborate
+workspace:
+  id: e8ed4f61-1659-4e56-b1b4-a5c41b33a280
+
+localResources:
+  environments:
+    - ..\environment\dev_environment.json
+    - ..\environment\prod_environment.json
+    - ..\environment\reqres_environment.json
+    - ..\environment\staging_environment.json

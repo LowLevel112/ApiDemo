@@ -1,0 +1,3 @@
+$kind: collection
+name: DummyJSON API Demo
+description: Collection for API testing with Postman and Newman on DummyJSON.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="DummyJSON API Demo" tests="8" time="2.906">
+  <testsuite name="GET Users" id="9a9cffcc-e562-498f-a6e8-e69facba9ced" timestamp="2026-04-28T03:33:52.460Z" tests="4" failures="0" errors="0" time="0.549">
+    <testcase name="Status code is 200" time="0.549" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.549" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.549" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has users array" time="0.549" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="POST Login" id="c5b59063-1430-4c53-a8a7-540cffd3b589" timestamp="2026-04-28T03:33:52.460Z" tests="4" failures="0" errors="0" time="0.332">
+    <testcase name="Status code is 200" time="0.332" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.332" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.332" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has access token" time="0.332" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="GET Auth Me" id="2dbf84e5-bc63-49ce-a4ce-3d6a2fc1bb32" timestamp="2026-04-28T03:33:52.460Z" tests="4" failures="0" errors="0" time="0.320">
+    <testcase name="Status code is 200" time="0.320" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.320" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.320" classname="DummyJsonApiDemo"/>
+    <testcase name="Response has user data" time="0.320" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="PUT User 2" id="2e1b4e48-50cd-47bd-a42f-a9d6ad43ac50" timestamp="2026-04-28T03:33:52.460Z" tests="4" failures="0" errors="0" time="0.370">
+    <testcase name="Status code is 200" time="0.370" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.370" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.370" classname="DummyJsonApiDemo"/>
+    <testcase name="Response includes updated fields" time="0.370" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="DELETE User 2" id="05d57743-c01e-41cd-849d-bda52a5cac2a" timestamp="2026-04-28T03:33:52.460Z" tests="4" failures="0" errors="0" time="0.345">
+    <testcase name="Status code is 200" time="0.345" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.345" classname="DummyJsonApiDemo"/>
+    <testcase name="Content-Type is application/json" time="0.345" classname="DummyJsonApiDemo"/>
+    <testcase name="Response confirms deletion" time="0.345" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / POST Login - Invalid Credentials" id="c6e9d3b2-8836-4f9c-928d-73c8d8fd5da3" timestamp="2026-04-28T03:33:52.460Z" tests="2" failures="0" errors="0" time="0.388">
+    <testcase name="Status code is 400 for invalid credentials" time="0.388" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.388" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET Users - Invalid Limit" id="b609d284-2f19-4e02-bd47-7b716e072962" timestamp="2026-04-28T03:33:52.460Z" tests="2" failures="0" errors="0" time="0.316">
+    <testcase name="Status code is 400 for non-numeric limit" time="0.316" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.316" classname="DummyJsonApiDemo"/>
+  </testsuite>
+  <testsuite name="Negative Tests / GET User Not Found" id="c26c5134-be4a-4a73-b306-6db31b10cd18" timestamp="2026-04-28T03:33:52.460Z" tests="2" failures="0" errors="0" time="0.286">
+    <testcase name="Status code is 404 for non-existent user" time="0.286" classname="DummyJsonApiDemo"/>
+    <testcase name="Response time is less than 2s" time="0.286" classname="DummyJsonApiDemo"/>
+  </testsuite>
+</testsuites>
